@@ -50,6 +50,9 @@ class Ej02DynamicFragmentsActivity : AppCompatActivity() {
             }
 
 
+
+
+
         }
 
     }

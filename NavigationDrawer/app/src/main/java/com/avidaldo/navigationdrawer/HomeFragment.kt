@@ -27,11 +27,11 @@ class HomeFragment : Fragment() {
             Toast.makeText(activity, "Inicio", Toast.LENGTH_SHORT).show()
         }
 
-        // handle the button from the host activity using findViewById method
+/*        // handle the button from the host activity using findViewById method
         btnActivity = activity!!.findViewById<Button>(R.id.btnActivity)
         btnActivity.setOnClickListener {
             Toast.makeText(activity, "Fragment Home", Toast.LENGTH_SHORT).show()
-        }
+        }*/
 
 
         return binding.root

@@ -15,14 +15,7 @@ import com.avidaldo.navigation.databinding.FragmentBlueBinding
 class BlueFragment : Fragment() {
 
     private var _binding: FragmentBlueBinding? = null
-    // La propiedad solo es válida entre onCreateView y onDestroyView.
     private val binding get() = _binding!!
-    // el getter accederá al binding solo cuando este ya exista
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,8 +32,9 @@ class BlueFragment : Fragment() {
         val navController = Navigation.findNavController(view)
 
         binding.button.setOnClickListener {
-            Toast.makeText(activity, "click en azul", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "click en azul", Toast.LENGTH_SHORT).show()
             navController.navigate(R.id.action_blueFragment_to_redFragment)
+            /* El navControler nos permite utilizar las acciones de navegación definidas en el nav_graph */
         }
     }
 

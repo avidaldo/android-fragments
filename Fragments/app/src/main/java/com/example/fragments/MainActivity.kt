@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.fragments.databinding.ActivityMainBinding
 
-// https://developer.android.com/guide/fragments
+/* https://developer.android.com/guide/fragments
+https://cursokotlin.com/capitulo-22-fragments-en-kotlin/
+ */
 
 class MainActivity : AppCompatActivity() {
 

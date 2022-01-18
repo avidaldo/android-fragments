@@ -1,63 +1,50 @@
 package com.avidaldo.navigationdrawer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils.replace
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.core.view.GravityCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.avidaldo.navigationdrawer.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
 
-
-/*
-https://www.youtube.com/watch?v=l-jdSOUpSIA
-https://www.youtube.com/watch?v=bqC0y_VLq5Q
-https://developer.android.com/guide/navigation/navigation-ui#add_a_navigation_drawer
-https://www.geeksforgeeks.org/view-binding-with-fragments-in-android-jetpack/
- */
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.contentMain.toolbar)
+        setSupportActionBar(binding.contentMain.toolbar) // Indicamos que la toolbar será utilizada como actionBar (con su API)
 
-        val toggle = ActionBarDrawerToggle(this, binding.root, binding.contentMain.toolbar, R.string.open, R.string.close)
-
-        binding.root.addDrawerListener(toggle)
-        toggle.syncState() // Añade a la toolbar el icono para mostrar el Drawer
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        navController = navHostFragment.navController
 
 
-        binding.navMenu.setNavigationItemSelectedListener {
 
-            when (it.itemId) {
-                R.id.home -> cambio(HomeFragment.newInstance(), R.string.home)
-                R.id.about -> cambio(AboutFragment.newInstance(), R.string.about)
-                R.id.contact -> cambio(ContactFragment.newInstance(), R.string.contact)
-                R.id.rating -> cambio(RatingFragment.newInstance(), R.string.rating)
-            }
-            true
-        }
+        appBarConfiguration = AppBarConfiguration(navController.graph)
 
-    }
+/*        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.about, R.id.contact, R.id.home, R.id.rating
+            ), binding.drawerLayout
+        )*/
 
-    private fun cambio(fragment: Fragment, titleResource: Int) {
 
-        binding.root.closeDrawer(GravityCompat.START)  // Para cerrar el Drawer cuando se selecciona un item
 
-        supportFragmentManager.commit {
-            replace(R.id.fragmentContainerView, fragment)
-        }
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        binding.navView.setupWithNavController(navController)
 
-        binding.contentMain.toolbar.title = getString(titleResource)
+
     }
 
 }

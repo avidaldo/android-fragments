@@ -18,12 +18,12 @@ utilizando el atributo android:layout_gravity
     <include android:id="@+id/content_main" layout="@layout/content_main" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_menu"
+        android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
-        android:layout_gravity="start"/> <!-- TODO: cambiarlo para probar o poner 2 -->
-    <!-- TODO: layout_width normalmente fija -->
+        android:layout_gravity="start"/>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

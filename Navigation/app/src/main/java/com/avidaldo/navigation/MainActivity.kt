@@ -1,7 +1,9 @@
 package com.avidaldo.navigation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import com.avidaldo.navigation.databinding.ActivityMainBinding
 
 
 /**
@@ -11,8 +13,29 @@ import android.os.Bundle
  */
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.navController
+
+
+        binding.btnChangeFromActivity.setOnClickListener {
+            when (navController.currentDestination?.id) {
+                R.id.blueFragment1 -> navController.navigate(R.id.action_blueFragment_to_redFragment)
+                R.id.redFragment2 -> navController.navigate(R.id.action_redFragment_to_blueFragment)
+                else -> throw Exception("No hay acción definida desde el fragment actual")
+            }
+        }
+
+
     }
+
 }
