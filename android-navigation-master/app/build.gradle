@@ -23,8 +23,9 @@ android {
             testCoverageEnabled false
         }
     }
+    /* Sin dataBinding aparece error por requerir los 3 alyouts el mismo id */
     dataBinding {
-        enabled = true
+        enabled true
     }
     productFlavors {
     }

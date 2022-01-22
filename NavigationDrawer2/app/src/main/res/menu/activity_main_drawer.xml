@@ -17,4 +17,17 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
     </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/submenu"
+            android:title="Subtitulo" >
+            <menu>
+                <item android:id="@+id/subitem1"
+                    android:title="Subitem 1"
+                    android:icon="@android:drawable/ic_menu_manage" />
+            </menu>
+        </item>
+
+    </group>
 </menu>

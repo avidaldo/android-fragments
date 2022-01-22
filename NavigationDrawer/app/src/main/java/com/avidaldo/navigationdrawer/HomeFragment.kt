@@ -14,7 +14,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var btnActivity : Button
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -27,12 +26,6 @@ class HomeFragment : Fragment() {
             Toast.makeText(activity, "Inicio", Toast.LENGTH_SHORT).show()
         }
 
-/*        // handle the button from the host activity using findViewById method
-        btnActivity = activity!!.findViewById<Button>(R.id.btnActivity)
-        btnActivity.setOnClickListener {
-            Toast.makeText(activity, "Fragment Home", Toast.LENGTH_SHORT).show()
-        }*/
-
 
         return binding.root
     }
@@ -41,7 +34,6 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        btnActivity.setOnClickListener {  } // Si no se hace esto y el botón no se reasigna para otros fragments, fallaría
     }
 
     companion object {

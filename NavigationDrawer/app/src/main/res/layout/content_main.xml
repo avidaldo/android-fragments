@@ -30,14 +30,5 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
-    <Button
-        android:id="@+id/btnActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Botón en activity"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

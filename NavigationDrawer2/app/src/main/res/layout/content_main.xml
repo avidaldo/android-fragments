@@ -8,6 +8,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main">
 
+    <!-- NavHostFragment: Contenedor de fragments. Aquí se cargarán
+    los distintos fragments siguiendo la navegación -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_content_main"
         android:layout_width="match_parent"

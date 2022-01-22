@@ -11,7 +11,7 @@
         android:id="@+id/home"
         android:title="@string/home" />
     <item
-        android:id="@+id/about"
+        android:id="@+id/aboutFragment"
         android:title="@string/about" />
     <item
         android:id="@+id/contact"

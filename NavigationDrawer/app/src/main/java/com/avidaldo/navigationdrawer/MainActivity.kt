@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
 /*        appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.about, R.id.contact, R.id.home, R.id.rating
+                R.id.aboutFragment, R.id.contact, R.id.home, R.id.rating
             ), binding.drawerLayout
         )*/
 
